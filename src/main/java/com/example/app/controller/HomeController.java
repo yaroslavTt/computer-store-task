@@ -1,8 +1,7 @@
 package com.example.app.controller;
 
-import com.example.app.model.computers.Computer;
-import com.example.app.model.computers.Laptop;
-import com.example.app.repository.LaptopRepository;
+import com.example.app.model.Computer;
+import com.example.app.repository.ComputerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +14,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
 
-    private final LaptopRepository laptopRepository;
+    private final ComputerRepository computerRepository;
 
     @GetMapping
-    public List<Laptop> listAllComputers(){
-        return laptopRepository.findAll();
+    public List<Computer> listAllComputers(){
+        return computerRepository.findAll();
     }
 }
