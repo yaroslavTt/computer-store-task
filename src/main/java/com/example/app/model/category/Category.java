@@ -17,8 +17,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="category_name")
+    private String categoryName;
+
     @Column(name="min_storage_memory")
-    private Double minStorageMemory;
+    private Integer minStorageMemory;
 
     @Column(name="min_cpu_cores")
     private Integer minCpuCores;
@@ -33,7 +36,7 @@ public class Category {
     private Integer maxOperativeMemory;
 
     @Column(name="min_video_memory")
-    private Integer minimalVideoMemory;
+    private Integer minVideoMemory;
 
     @Column(name="max_video_memory")
     private Integer maxVideoMemory;

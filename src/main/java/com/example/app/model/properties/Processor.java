@@ -10,8 +10,5 @@ import lombok.Data;
 public class Processor extends Property{
 
     @Column
-    private Double frequency;
-
-    @Column
-    private Double threads;
+    private Integer cores;
 }

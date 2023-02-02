@@ -1,4 +1,7 @@
 package com.example.app.model.computers;
+import com.example.app.model.properties.GraphicCard;
+import com.example.app.model.properties.HardDrive;
+import com.example.app.model.properties.OperativeMemory;
 import com.example.app.model.properties.Processor;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,9 +22,15 @@ public class Computer {
     @JoinColumn(name = "processor_id", referencedColumnName = "id")
     private Processor processor;
 
-    @Column(name="storage_memory")
-    private Integer storageMemory;
+    @OneToOne
+    @JoinColumn(name = "graphic_card_id", referencedColumnName = "id")
+    private GraphicCard graphicCard;
 
-    @Column(name="operative_memory")
-    private Integer operativeMemory;
+    @OneToOne
+    @JoinColumn(name="hard_drive_id", referencedColumnName = "id")
+    private HardDrive storage;
+
+    @OneToOne
+    @JoinColumn(name="operative_memory_id", referencedColumnName = "id")
+    private OperativeMemory operativeMemory;
 }
