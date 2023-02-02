@@ -17,10 +17,21 @@ import java.util.Optional;
 public class ComputerService {
 
     private final ComputerRepository computerRepository;
-    private final CategoryRepository categoryRepository;
+    private final CategoryService categoryService;
 
+    public List<Computer> getAllComputers(){
+        return computerRepository.findAll();
+    }
     public List<Computer> getComputersByCategoryName(String categoryName){
-        Optional<Category> category = categoryRepository.findByCategoryName(categoryName);
+        Category category = categoryService.getCategoryByName(categoryName);
+
+        return computerRepository.findAllByCategory(category.getMinStorageMemory(),
+                                                    category.getMinOperativeMemory(),
+                                                    category.getMaxOperativeMemory(),
+                                                    category.getMinVideoMemory(),
+                                                    category.getMaxVideoMemory(),
+                                                    category.getMinCpuCores(),
+                                                    category.getMaxCpuCores());
     }
 
 }

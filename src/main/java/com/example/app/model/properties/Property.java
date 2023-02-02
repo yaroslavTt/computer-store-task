@@ -12,6 +12,9 @@ public class Property {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "compunent_name")
+    private String componentName;
+
     @Column(name = "price")
     private Double price;
 
