@@ -12,7 +12,7 @@ public class Property {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "compunent_name")
+    @Column(name = "component_name")
     private String componentName;
 
     @Column(name = "price")

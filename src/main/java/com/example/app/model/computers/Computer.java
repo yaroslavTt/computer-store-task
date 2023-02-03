@@ -39,4 +39,9 @@ public class Computer {
     @JoinColumn(name="operative_memory_id", referencedColumnName = "id")
     @NotNull
     private OperativeMemory operativeMemory;
+
+    @Transient
+    public Double getPrice(){
+        return processor.getPrice() + graphicCard.getPrice() + storage.getPrice() + operativeMemory.getPrice();
+    }
 }

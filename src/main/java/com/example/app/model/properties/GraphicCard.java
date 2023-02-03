@@ -10,9 +10,6 @@ import lombok.Data;
 @Data
 public class GraphicCard extends Property{
 
-    @Column
-    private Double frequency;
-
     @Column(name = "video_memory")
     private Double videoMemory;
 }
