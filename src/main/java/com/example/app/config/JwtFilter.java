@@ -24,7 +24,6 @@ public class JwtFilter extends GenericFilterBean {
 
     public static final String AUTHORIZATION = "Authorization";
 
-    @Autowired
     private final JwtProvider jwtProvider;
 
     private final CustomUserDetailsService customUserDetailsService;

@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final UserService userService;
-    private JwtProvider jwtProvider;
+    private final JwtProvider jwtProvider;
 
     @PostMapping("/register")
     public String registerUser(@RequestBody @Valid RegistrationRequest registrationRequest) {
