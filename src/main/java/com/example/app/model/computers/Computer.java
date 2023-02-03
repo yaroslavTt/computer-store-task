@@ -6,6 +6,8 @@ import com.example.app.model.properties.Processor;
 import jakarta.persistence.*;
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 @Table(name="computers")
 @Entity
 @Getter
@@ -20,17 +22,21 @@ public class Computer {
 
     @OneToOne()
     @JoinColumn(name = "processor_id", referencedColumnName = "id")
+    @NotNull
     private Processor processor;
 
     @OneToOne
     @JoinColumn(name = "graphic_card_id", referencedColumnName = "id")
+    @NotNull
     private GraphicCard graphicCard;
 
     @OneToOne
     @JoinColumn(name="hard_drive_id", referencedColumnName = "id")
+    @NotNull
     private HardDrive storage;
 
     @OneToOne
     @JoinColumn(name="operative_memory_id", referencedColumnName = "id")
+    @NotNull
     private OperativeMemory operativeMemory;
 }

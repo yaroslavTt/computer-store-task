@@ -1,5 +1,6 @@
-package com.example.app.handler;
+package com.example.app.exception.handler;
 
+import com.example.app.exception.CategoryAlreadyExistsException;
 import com.example.app.exception.CategoryNotFoundException;
 import com.example.app.model.category.Category;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,13 @@ public class CategoryControllerAdvice {
     public ResponseEntity<Object> handleNotFoundCategory(CategoryNotFoundException e){
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
+                .body(e.getMessage());
+    }
+
+    @ExceptionHandler(CategoryAlreadyExistsException.class)
+    public ResponseEntity<Object> handleAlreadyExists(CategoryAlreadyExistsException e){
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
                 .body(e.getMessage());
     }
 }
