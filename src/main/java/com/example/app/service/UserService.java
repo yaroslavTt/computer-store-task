@@ -1,5 +1,6 @@
 package com.example.app.service;
 
+import com.example.app.exception.UserNotFoundException;
 import com.example.app.model.user.Role;
 import com.example.app.model.user.User;
 import com.example.app.repository.RoleRepository;
@@ -26,7 +27,7 @@ public class UserService {
     }
 
     public User findByLogin(String login) {
-        return userRepository.findByLogin(login).get(); //TODO:
+        return userRepository.findByLogin(login).orElseThrow(() -> new UserNotFoundException("Can't find user with login: " + login)); //TODO:
     }
 
     public User findByLoginAndPassword(String login, String password) {
