@@ -26,8 +26,8 @@ public class SecurityConfig{
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/orders", "/orders/**").hasRole("USER")
-                .requestMatchers("/auth/register", "/auth/auth", "/category", "/category/**",
+                .requestMatchers("/orders", "/orders/**", "/category/**").hasRole("USER")
+                .requestMatchers("/auth/register", "/auth/auth", "/category",
                         "/computers", "/computers/**").permitAll()
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
